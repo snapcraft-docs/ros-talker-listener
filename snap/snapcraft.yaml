@@ -1,5 +1,6 @@
 name: ros-talker-listener
-version: 0.1
+base: core18
+version: "0.1"
 summary: ROS Talker/Listener Example
 description: |
   This example requires roscore as well as a talker and listener.
@@ -9,12 +10,10 @@ confinement: devmode
 
 parts:
   ros-tutorials:
-    source: https://github.com/ros/ros_tutorials.git
-    source-branch: kinetic-devel
     plugin: catkin
-    rosdistro: kinetic
+    source: https://github.com/ros/ros_tutorials.git
+    source-branch: melodic-devel
     source-space: roscpp_tutorials/
-    catkin-packages: [roscpp_tutorials]
 
 apps:
   run:
