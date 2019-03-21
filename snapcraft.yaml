@@ -1,12 +1,11 @@
 name: ros-talker-listener
-base: core18
-version: "0.1"
+version: '0.1'
 summary: ROS Talker/Listener Example
 description: |
-  This example requires roscore as well as a talker and listener.
+  This example launches a ROS talker and listener.
 
-grade: devel
 confinement: devmode
+base: core18
 
 parts:
   ros-tutorials:
