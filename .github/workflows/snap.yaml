@@ -30,6 +30,7 @@ jobs:
                     sudo apt update
                     sudo apt install ros-noetic-ros-base
 
+                    source /opt/ros/noetic/setup.bash
                     check_node() {
                         local node_name=$1
                         rosnode list | grep -q "/$node_name"
