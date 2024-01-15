@@ -12,9 +12,10 @@ on:
 
 jobs:
   main-snap:
-    uses: ubuntu-robotics/snap_workflows/.github/workflows/build-install-test-snap.yaml@main
+    uses: ubuntu-robotics/snap_workflows/.github/workflows/build-install-test-snap.yaml@F_add_snapcraft_channel_option
     with:
       ubuntu-image: ubuntu-18.04
+      snapcraft-channel: 7.x
       branch-name: master
       snap-name: ros-talker-listener
       snap-install-args: --devmode
