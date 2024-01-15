@@ -14,7 +14,7 @@ jobs:
   main-snap:
     uses: ubuntu-robotics/snap_workflows/.github/workflows/build-install-test-snap.yaml@F_add_snapcraft_channel_option
     with:
-      ubuntu-image: ubuntu-18.04
+      ubuntu-image: ubuntu-20.04
       snapcraft-channel: 7.x
       branch-name: master
       snap-name: ros-talker-listener
@@ -28,7 +28,7 @@ jobs:
                     sudo apt install curl
                     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
                     sudo apt update
-                    sudo apt install ros-melodic-ros-base
+                    sudo apt install ros-noetic-ros-base
 
                     check_node() {
                         local node_name=$1
