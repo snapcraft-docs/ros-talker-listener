@@ -12,7 +12,7 @@ on:
 
 jobs:
   main-snap:
-    uses: ubuntu-robotics/snap_workflows/.github/workflows/build-install-test-snap-lxc.yaml@main
+    uses: ubuntu-robotics/snap_workflows/.github/workflows/build-install-test-snap-lxc.yaml@B_run_lxc_as_user
     with:
       lxc-image: ubuntu:18.04
       snapcraft-channel: 7.x
