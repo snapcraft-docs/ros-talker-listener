@@ -62,8 +62,11 @@ jobs:
                     roscore & ros-talker-listener &
                     pid=$!
 
-                    sleep 5
-
+                    rosnode list
+                    echo "node list and wait"
+                    sleep 10
+                    echo "node list"
+                    rosnode list
                     check_node talker
                     check_node listener
                     check_topic chatter talker listener
