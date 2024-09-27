@@ -29,8 +29,8 @@ jobs:
                     sudo apt install curl
                     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
                     sudo apt update
-                    sudo apt install -y ros-melodic-ros-base
-
+                    sudo apt install -y ros-melodic-ros-core
+                    echo "sourcing ROS MELODIC"
                     source /opt/ros/melodic/setup.bash
                     check_node() {
                         local node_name=$1
@@ -58,6 +58,7 @@ jobs:
                         fi
                     }
 
+                    echo "launching snap"
                     ros-talker-listener &
                     pid=$!
 
