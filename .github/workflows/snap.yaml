@@ -23,7 +23,7 @@ jobs:
                     #!/bin/bash
 
                     ## Install ROS
-                    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+                    http://packages.ros.org/ros/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" > /etc/apt/sources.list.d/ros-latest.list'
 
                     sudo apt install --yes curl
                     curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
@@ -60,7 +60,7 @@ jobs:
                         fi
                     }
 
-                    ros-talker-listener &
+                    roscore & ros-talker-listener &
                     pid=$!
 
                     sleep 5
