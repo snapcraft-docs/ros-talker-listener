@@ -68,7 +68,7 @@ jobs:
                         local error_code=0
 
                         while true; do
-                            error_code=$(rostopic info /$topic_name | grep -E "$pub_name|$sub_name"; echo $?)
+                            error_code=$(rostopic info /$topic_name | grep -E "$pub_name|$sub_name" > /dev/null 2>&1; echo $?)
                             if [ $error_code -eq 0 ]; then
                                 echo "$topic_name has publisher $pub_name and subscriber $sub_name."
                                 return 0
