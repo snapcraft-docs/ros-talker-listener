@@ -36,7 +36,9 @@ jobs:
 
                     check_node() {
                         local node_name=$1
-                        rosnode list | grep -q "/$node_name"
+                        local error_code=0
+
+                        error_code=$(rosnode list | grep -q "/$node_name"; echo $?)
                         if [ $? -eq 0 ]; then
                             echo "$node_name is running."
                         else
@@ -50,7 +52,9 @@ jobs:
                         local topic_name=$1
                         local pub_name=$2
                         local sub_name=$3
-                        rostopic info /$topic_name | grep -E "$pub_name|$sub_name"
+                        local error_code=0
+
+                        error_code=$(rostopic info /$topic_name | grep -E "$pub_name|$sub_name"; echo $?)
                         if [ $? -eq 0 ]; then
                             echo "$$topic_name has publisher $pub_name and subscriber $sub_name."
                         else
@@ -63,7 +67,7 @@ jobs:
                     roscore & ros-talker-listener &
                     pid=$!
 
-                    sleep 5
+                    sleep 10
 
                     check_node talker
                     check_node listener
